@@ -1,5 +1,8 @@
 <?php
 namespace App\Http\Controllers\Auth;
+use App\Music;
+use Illuminate\Support\Facades\DB;
+
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -8,9 +11,20 @@ namespace App\Http\Controllers\Auth;
  */
 
 class IndexController extends \App\Http\Controllers\Controller{
-    public function index(){
-        echo 12312;
-        die;
+
+    public function __construct()
+    {
+        /*表示表名*/
+        $this->table='ims_hr_photo_music';
     }
+
+    public function index(){
+
+//        $data=DB::table($this->table)->get();
+  $data=Music::all()->toArray();
+  var_dump($data);
+
+    }
+
 
 }

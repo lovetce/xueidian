@@ -17,4 +17,4 @@ Route::get('/hello', function () {
 });
 //Route::get('/index','index/index');
 /*这样设置路由*/
-Route::get('/index','Auth\IndexController@index');
+Route::get('/','Auth\IndexController@index');
