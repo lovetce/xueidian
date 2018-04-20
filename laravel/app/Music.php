@@ -8,4 +8,11 @@
 namespace App;
 class Music extends \Illuminate\Database\Eloquent\Model{
     protected $table= 'ims_hr_photo_music';
+
+    public function getMusic(){
+
+
+    }
+
+
 }

@@ -21,8 +21,11 @@ class IndexController extends \App\Http\Controllers\Controller{
     public function index(){
 
 //        $data=DB::table($this->table)->get();
-  $data=Music::all()->toArray();
-  var_dump($data);
+//  $data=Music::all()->toArray();
+// dd($data);
+
+
+return view('index.index');
 
     }
 
