@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Auth;
 use App\Music;
 use Illuminate\Support\Facades\DB;
-
+use \App\Http\Controllers\Controller;
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
  * Time: 下午 4:01
  */
 
-class IndexController extends \App\Http\Controllers\Controller{
+class IndexController extends Controller{
 
     public function __construct()
     {
