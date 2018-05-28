@@ -1,2 +1,4 @@
 1:删除文件   git rm 我的文件
 2:删除文件夹  git rm -r 我的文件夹/
+3:回滚到上个版本  git reset --hard HEAD^
+4:强制添加 git add -f 文件或者文件夹
