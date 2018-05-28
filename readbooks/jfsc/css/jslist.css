@@ -1,0 +1,100 @@
+body{
+	background: #f2f2f2;
+}
+.title{
+	background: #e73d2b;
+	color: #fff;
+	font-size: 0.32rem;
+	width: 100%;
+	height: 0.76rem;
+	text-align: center;
+	line-height: 0.76rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.jfcontent{
+	padding-top: 0.76rem;
+}
+.jflist_info,.jflist_item{
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	background: #ffffff;
+	-webkit-box-align:center;
+}
+.userimg{
+	width:1.32rem;
+	height: 1.32rem;
+	border:1px solid #b2b2b2;
+	border-radius: 0.1rem;
+	margin: 0.22rem 0.24rem 0.22rem 0.26rem;
+}
+.info_box,.item_left{
+	-webkit-box-flex: 1;
+}
+.nickname{
+	font-size: 0.34rem;
+	font-weight: bold;
+	color: #000000;
+}
+.jfnum{
+	font-size: 0.32rem;
+	color: #000000;	
+	padding-top: 0.2rem;
+}
+.numcolor{
+	font-size: 0.32rem;
+	color: #ffa200;
+}
+.dhclick{
+	font-size: 0.3rem;
+	color: #999999;
+	line-height: 0.3rem;
+}
+.dhclick::after{
+	content: '';
+	background: url(../images/enter.png) no-repeat;
+	width: 0.17rem;
+	height: 0.28rem;
+	line-height: 0.3rem;
+	background-size: 100%;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: 0.18rem;
+	margin-right: 0.36rem;
+}
+.jflist{
+	margin-top: 0.2rem;
+}
+.jflist_item{
+	border-bottom: 1px solid #e0e0e0;
+	height: 1.44rem;
+	padding: 0 0.32rem;
+}
+.jflist_item:last-child{
+	border-bottom: 1px solid transparent;
+}
+
+.item_l_title{
+	font-size: 0.3rem;
+	color: #000000;
+
+}
+.item_l_time{
+	font-size: 0.24rem;
+	color :#8c8c8c;
+	line-height: 0.48rem;
+}
+.addcolor{
+	font-size: 0.32rem;
+	color :#ffa200;
+	
+}
+.delcolor{
+	font-size: 0.32rem;
+	color :#000000;
+}
+.addicon,.delicon{
+	font-style: normal;
+	padding-right: 0.14rem;
+}

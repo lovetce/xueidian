@@ -1,0 +1,54 @@
+/* banner */
+.banner{ width:100%; height:388px; position:relative; color:#fff;min-width: 1225px;}
+
+.banner-center{height: 388px;background: url(../images/8391cc522be1f99ce7e6803927950bf2.jpg) top center  no-repeat ; width: 100%;}
+.banner .offical{ width:1000px; margin: 0px auto; text-align:center;  }
+.banner .offical .p1{ font-size:50px;padding-top:120px ; 
+ font-weight:700;
+  text-shadow: 0 3px 3px #c4b59d, 0px -2px 1px #fff;
+  font-weight: bold;
+  letter-spacing: -4px;
+  text-align: center;
+ }
+.banner .offical .p2{ font-size:22px; padding-top:33px;  text-shadow: 0 2px 2px #c4b59d, 0px -2px 1px #fff;}
+
+.step{ padding: 0 50px; width:1100px; margin:0 auto; clear:both; overflow:hidden; padding-bottom:33px; }
+.step p{ font-size:22px; color:#444444; text-align:center; height:71px; line-height:71px; }
+.step dl .number{ color:#1bc19c; margin-right:12px; } 
+.step dl .step-icon{ background:url(../images/step-icon.png) no-repeat; width:70px; height:29px; display:inline-block; vertical-align:54px; margin:0 16px 0 9px;}
+.step dl dd{ padding-top:24px; }
+.step dl dd span{ color:#666666; }
+.promte-wrap{ width:100%; height:206px; border-top:1px solid #eeeff2; border-bottom:1px solid #eeeff2; }
+.promte-wrap p{ font-size:30px; color:#444444; text-align:center; padding-top:65px; }
+.promte-wrap .design{ text-align:center; color:#999999; height:58px; line-height:58px; }
+
+/* con */
+.con .con-list{ text-align:center; width:900px; margin:0 auto; clear:both; overflow:hidden; }
+.con .con-list a{ color:#444444; height:53px; line-height:53px; margin:0 57px; text-align:center; display:inline-block; }
+.con .con-list .current{ border-bottom:2px solid #20c7a2;  color:#20c7a2;}
+.con .con-list a:hover{  border-bottom:2px solid #20c7a2; color:#20c7a2; }
+.con .list-wrap{ background:#f2f2f2; width:100%; height:auto; padding-top:20px; }
+
+.con .list{  position:relative; overflow:hidden; margin-bottom:23px; background:#fff; padding:10px 10px 0 10px; background:#f2f2f2;border:1px #f2f2f2 solid;  width:150px; height:220px;margin-right:23px; background:#fff;border:1px #e8e8e8 solid;}
+.con .list img{ width:150px; height:150px; }
+
+.con .list:hover{ background:#FF9966}
+.con .list:hover .ewm{ display:block}
+.con .list:hover p{ color:#52d6d3; height:30px; line-height:30px; text-align:center }
+.con .list  p{ height:30px; line-height:30px; }
+.con .list .bottom{  background:#fff; height:30px;text-align:center; margin-top:10px }
+
+
+
+/* 最新下载上传导航切换 */
+.s-select{text-align:center;padding-top:20px;height:50px;margin:10px auto auto;}
+.clearfix{display:block;}
+.s-select a.on,.s-select a:hover{background:#E6E6E6;text-decoration:none;}
+.s-select a{width:100px;height:38px;text-align:center;line-height:38px;display:inline-block;background:#fff;border:1px solid #D6D6D6;border-left:none;font-size:14px;}
+.empty{width: 1200px;height: 261px;background: #fff;margin: 0px auto; color:#707070;margin-top: 30px;}
+.p1{font-size: 18px;padding-top:105px;text-align: center; }
+.p1 span{color:#20c7a2;}
+.p2{font-size: 14px;padding-top: 20px; text-align: center;}
+.tuijian{font-size: 14px;color:#6f6f6f;width: 1200px;height: 18px;line-height: 18px;margin:0px auto; margin-top:25px;  }
+.tuijian span{color:#4ad0b2;}
+

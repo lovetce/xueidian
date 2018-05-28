@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+/*通用样式*/
+html { 
+    height: 100%; 
+    width: 100%; 
+    font-family: PingFangSC-Regular, sans-serif; 
+    outline: 0; 
+    -webkit-text-size-adjust:none;
+}
+body{
+    margin:0;
+    padding:0;
+    color:#000;
+    width: 100%;
+
+    font-size:0.38rem;
+}
+ul,p,h1,h2,h3,h4,h5,h6,dl,dd{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+input{
+    border:0;
+
+}
+.lf{float:left;}
+.rt{float:right;}
+.clear{clear:both;}
+a{
+    color:#040100;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}

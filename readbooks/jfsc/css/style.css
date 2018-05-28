@@ -1,0 +1,46 @@
+/*通用样式*/
+html { 
+    height: 100%; 
+    width: 100%; 
+    font-size: 100px; 
+    outline: 0; 
+    -webkit-text-size-adjust:none;
+}
+body{
+    margin:0;
+    padding:0;
+    color:#000;
+    width: 100%;
+    max-width:640px;
+    min-width: 320px;
+    height:100%;
+    -webkit-overflow-scrolling: touch;/*流畅滚动*/
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+
+}
+ul,p,h1,h2,h3,h4,h5,h6,dl,dd{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+input,button{
+    border:0;
+}
+.lf{float:left;}
+.rt{float:right;}
+.clear{clear:both;}
+img{vertical-align:bottom;}
+a{
+    color:#040100;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+a,button,input,textarea{
+-webkit-tap-highlight-color: rgba(0,0,0,0;)/*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+-webkit-user-modify:read-write-plaintext-only; 
+}
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+}
