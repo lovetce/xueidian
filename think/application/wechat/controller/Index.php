@@ -22,13 +22,23 @@ class Index extends Controller
     }
 
     /**
-     * 先不急
+     * 创建菜单
      */
-    public function create_menu(){
+    public function createMenu(){
 
 
 
 
     }
+
+    /**
+     * 发送模板消息
+     */
+    public function sendTemplate(){
+
+
+    }
+
+
 
 }
