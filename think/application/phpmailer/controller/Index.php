@@ -25,7 +25,9 @@ class Index
 //uykkjayyfbahdhfg
         //upoiwxtrprfxdddg
         //oqhtcmeahiopdcdh
-        $this->sendMail('发送的方法','邮件的标题','发送成功');
+        $result=$this->sendMail('619372857@qq.com','邮件的标题','发送成功');
+        var_dump($result);
+        die;
 
 
 
@@ -77,8 +79,9 @@ class Index
         $mail->Subject = $title;
         //添加邮件正文 上方将isHTML设置成了true，则可以是完整的html字符串 如：使用file_get_contents函数读取本地的html文件
         $mail->Body = $content;
+//        $mail->AddAttachment('xx.xls','我的附件.xls');
 
-        //为该邮件添加附件 该方法也有两个参数 第一个参数为附件存放的目录（相对目录、或绝对目录均可） 第二参数为在邮件附件中该附件的名称
+       //为该邮件添加附件 该方法也有两个参数 第一个参数为附件存放的目录（相对目录、或绝对目录均可） 第二参数为在邮件附件中该附件的名称
         // $mail->addAttachment('./d.jpg','mm.jpg');
         //同样该方法可以多次调用 上传多个附件
         // $mail->addAttachment('./Jlib-1.1.0.js','Jlib.js');
