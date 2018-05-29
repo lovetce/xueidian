@@ -10,50 +10,33 @@ namespace app\redis\controller;
 
 
 use think\Cache;
+use redis\RedisCluster;
 
 class Index
 {
     public function index(){
-
-//        phpinfo();
-//        die;
-        $redis = new \Redis();
-        $redis->connect('127.0.0.1', 6379);
-        // $redis->auth('password'); # 如果没有密码则不需要这行
-
-//        echo $redis->get('123213');
-        //列表
-        //存储数据到列表中
-//        $redis->lpush('list', 'html');
-//        $redis->lpush('list', 'css');
-//        $redis->lpush('list', 'php');
-
-        //获取列表中所有的值
-        $list = $redis->lrange('list', 0, -1);
-//        print_r($list);echo '<br>';
-
-        //从右侧加入一个
-//        $redis->rpush('list', 'mysql');
-        $list = $redis->lrange('list', 0, -1);
-//        dump($list);
-//        die;
-//
-//        //从左侧弹出一个
-//        $redis->lpop('list');
-//        $list = $redis->lrange('list', 0, -1);
-//        print_r($list);echo '<br>';
-//
-//        //从右侧弹出一个
-//        $redis->rpop('list');
-//        $list = $redis->lrange('list', 0, -1);
-//        print_r($list);echo '<br>';
-
-        // 结果
-        // Array ( [0] => php [1] => css [2] => html )
-        // Array ( [0] => php [1] => css [2] => html [3] => mysql )
-        // Array ( [0] => css [1] => html [2] => mysql )
-        // Array ( [0] => css [1] => html )
-
+       // 只有一台 Redis 的应用
+        $redis = new RedisCluster();
+        $redis->connect(array('host'=>'127.0.0.1','port'=>6379));
+        $cron_id = 10001;
+        $CRON_KEY = 'CRON_LIST';
+        $PHONE_KEY = 'PHONE_LIST:'.$cron_id;
+        $cron = $redis->hget($CRON_KEY,$cron_id);
+        if(empty($cron)){
+            $cron = array('id'=>10,'name'=>'jackluo');//mysql data
+            $redis->hset($CRON_KEY,$cron_id,$cron); // set redis
+        }
+        $phone_list = $redis->lrange($PHONE_KEY,0,-1);
+        if(empty($phone_list)){
+            $phone_list =explode(',','13228191831,18608041585');    //mysql data
+            if($phone_list){
+                $redis->multi();
+                foreach ($phone_list as $phone) {
+                    $redis->lpush($PHONE_KEY,$phone);
+                }
+                $redis->exec();
+            }
+        }
     }
 
 
