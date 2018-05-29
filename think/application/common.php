@@ -31,3 +31,14 @@ function url_request($url,$type='GET',$data=''){
     curl_close($ch);
     return $result;
 }
+function  res($code=0,$count=0,$data=array()){
+
+    return json(
+        array(
+            'code'=>$code,
+            'count'=>$count,
+            'data'=>$data
+        )
+    );
+
+}
