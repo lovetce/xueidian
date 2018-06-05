@@ -11,14 +11,33 @@ namespace app\redis\controller;
 
 use think\Cache;
 use redis\RedisCluster;
+use think\Db;
 
 class Index
 {
+    public function index()
+    {
+        $data = Db::name('cool')->select();
+//        dump($data['page']);
+        $redis = new  RedisCluster($config=array(
+            'ip' => '127.0.0.1',
+            'port'=>'6379'
+        ));
+//        var_dump($redis);
+//        die;
+       // $redis->setStr($data['id'],$data['page']);
+//        var_dump($data);
+//        die;
 
-    
+//     $redis->setTableRow('table','1',$data);
+//        dump($data);
+//        die;
+//        $str=$redis->getStr($data['id']);
+//        dump($str);
+//        die;
 
 
-
+    }
 
 
 /**
