@@ -11,25 +11,35 @@
 </head>
 <body>
 
-<table class="layui-hide" id="test"></table>
+<table class="layui-hide" id="test" lay-filter="cate-list"></table>
 
-<blockquote class="layui-elem-quote layui-quote-nm layui-text" style="margin-top: 15px;">
-    <a href="http://fly.layui.com/jie/18737/" target="_blank">如果列宽自适应出现横向滚动条的解决方案</a>
-</blockquote>
+<!--<blockquote class="layui-elem-quote layui-quote-nm layui-text" style="margin-top: 15px;">-->
+    <!--<a href="http://fly.layui.com/jie/18737/" target="_blank">如果列宽自适应出现横向滚动条的解决方案</a>-->
+<!--</blockquote>-->
 
+<script type="text/html" id="bar-cate">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="/static/js/jquery-1.10.2.min.js" charset="utf-8"></script>
 
 <script src="/static/layui/layui.js" charset="utf-8"></script>
+<script src="/static/js/mgt.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
 <script>
+    var table_flag = 'cate-list';
+    /*修改信息的地址*/
+    var url_info='{:url("index/edit_info")}';
+    var url_list='{:url("/layui/index/getlist")}';
     layui.use('table', function(){
         var table = layui.table;
-
         table.render({
             elem: '#test',
             page:true
-            ,url:"{:url('/layui/index/getlist')}"
-            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            /*请求url的地址*/
+            ,url:url_list
+          //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             ,cols: [[
                 {field:'id', title: 'ID', sort: true}
                 ,{field:'uniacid', title: 'uniacid'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
@@ -38,10 +48,51 @@
                 ,{field:'singer', title: 'singer'}
                 ,{field:'music', title: 'music'} //单元格内容水平居中
                 ,{field:'addtime', title: 'addtime'} //单元格内容水平居中
+                ,{fixed: 'right', title: '操作', width: 120, align:'center', toolbar: '#bar-cate'}
+
 
             ]]
         });
+        table.on('tool(' + table_flag + ')', function(obj){ //操作栏
+            var data = obj.data;
+            /*修改信息*/
+            if(obj.event === 'edit'){
+                cate_info(obj.data.id);
+            } else if(obj.event === 'del'){
+                layer.confirm('确定要删除此类别吗？', function(index){
+                    var data = 'id=' + obj.data.id;
+                    var loading = layer.load();
+
+                    do_ajax('POST', url_del, data, 'json', function(res){
+                        layer.close(loading);
+                        table.reload(table_flag);
+                        layer.msg(res.msg);
+                    });
+                })
+            }
+        });
+        function cate_info(id) {
+            var url = url_info + (id ? '?id=' + id : '');
+            // console.log(url);
+            // return false;
+            var loading = layer.load();
+
+            do_ajax('GET', url, null, 'html', function(res){
+                layer.close(loading);
+                layer_form = layer.open({
+                    type: 1,
+                    area: '500px',
+                    btn: '',
+                    title: (id ? '编辑' : '新增') + '类别',
+                    content: res,
+                });
+            });
+        }
+
+
     });
+
+
 </script>
 
 </body>

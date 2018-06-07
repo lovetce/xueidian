@@ -8,6 +8,7 @@
 
 namespace app\layui\controller;
 use app\layui\model\music;
+use think\Db;
 
 
 /**
@@ -24,13 +25,6 @@ class Index
 
         return view('index');
 
-
-//    dump($data);
-//    die;
-
-
-
-
     }
     public function getindex(){
         return view('getindex');
@@ -38,7 +32,10 @@ class Index
 
     /**
      * @return \think\response\Json
-     * 获取数据并返回
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * 返回数据
      */
     public function getlist(){
         $page=input('page');
@@ -49,6 +46,35 @@ class Index
          return  res(0,$dataCount,$data);
 
     }
+
+    /**
+     * @return \think\response\View
+     * 修改页面参数
+     */
+    public function edit_info(){
+        if (request()->isGet()){
+            /*如果id为空就不返回*/
+            $id=request()->get('id');
+            if (empty($id)){
+                /*返回错误信息*/
+                resMes('-1','数据错误哦');
+            }
+            $music = new  music();
+            $musicOneData=$music->getOne(array('id'=>$id));
+         return view('edit_info',array('musicOneData'=>$musicOneData));
+        }
+
+
+    }
+
+    /**
+     * 感觉效果还可以
+     */
+    public function test(){
+
+
+    }
+
 
 
 }

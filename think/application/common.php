@@ -10,6 +10,13 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+/**
+ * @param $url
+ * @param string $type
+ * @param string $data
+ * @return mixed
+ * 自定义封装的url请求的函数
+ */
 function url_request($url,$type='GET',$data=''){
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL,$url);
@@ -31,12 +38,39 @@ function url_request($url,$type='GET',$data=''){
     curl_close($ch);
     return $result;
 }
+
+/**
+ * @param int $code
+ * @param int $count
+ * @param array $data
+ * @return \think\response\Json
+ * 配合layui返回数据的函数
+ */
 function  res($code=0,$count=0,$data=array()){
 
     return json(
         array(
             'code'=>$code,
             'count'=>$count,
+            'data'=>$data
+        )
+    );
+
+
+}
+
+/**
+ * @param int $code
+ * @param string $message
+ * @param array $data
+ * @return \think\response\Json
+ * 返回信息
+ */
+function resMes($code=0,$message='',$data=array()){
+    return json(
+        array(
+            'code'=>$code,
+            'mes'=>$message,
             'data'=>$data
         )
     );
